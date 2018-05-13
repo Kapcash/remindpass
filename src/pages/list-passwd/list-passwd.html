@@ -1,0 +1,28 @@
+<ion-header [ngClass]="{'blur': !isLoggedIn}">
+  <ion-navbar>
+    <ion-title>My passwords</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content [ngClass]="{'blur': !isLoggedIn}">
+  <ion-list>
+    <button ion-item *ngFor="let item of passwords" (click)="goToPasswdDetails($event, item)">
+      <ion-icon name="{{item.icon}}" item-left></ion-icon>
+      {{item.name}}
+      <div class="item-note" item-right>
+        {{item.passwd}}
+      </div>
+    </button>
+  </ion-list>
+  <ion-fab bottom right>
+    <button ion-fab (click)="addPassdw()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-searchbar
+    [(ngModel)]="myInput"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+</ion-content>

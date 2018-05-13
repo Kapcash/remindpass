@@ -1,8 +1,8 @@
 {
-  "name": "test",
+  "name": "RemindPass",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Kapcash",
+  "homepage": "http://github.com/kapcash/remindpass",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -35,5 +35,9 @@
     "@ionic/app-scripts": "3.1.9",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "config": {
+    "ionic_source_map": "source-map",
+    "ionic_generate_source_map": true
+  }
 }

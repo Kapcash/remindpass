@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Password</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="savePasswd()">
+    <!-- <ion-list> -->
+      <ion-item>
+        <ion-label stacked>Name</ion-label>
+        <ion-input type="text" name="name" [(ngModel)]="selectedItem.name" [readonly]="readonly"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Username</ion-label>
+          <ion-input type="text" name="username" [(ngModel)]="selectedItem.username" [readonly]="readonly"></ion-input>
+        </ion-item>
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input [type]="readonly ? 'text' : 'password'" name="password" [(ngModel)]="selectedItem.password" [readonly]="readonly"></ion-input>
+      </ion-item>
+    <!-- </ion-list> -->
+    <button block ion-button type="submit">
+      Save
+    </button>
+  </form>
+</ion-content>
