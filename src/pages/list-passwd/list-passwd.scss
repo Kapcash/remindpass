@@ -1,5 +1,18 @@
 page-list-passwd {
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
   .blur {
     filter: blur(5px);
+  }
+
+  ion-fab[bottom] {
+    bottom: 70px
+  }
+
+  .small-date{
+    font-size: 1.4rem;
   }
 }

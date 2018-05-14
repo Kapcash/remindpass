@@ -5,19 +5,21 @@ import { MyApp } from './app.component';
 
 import { ListPasswordPage } from '../pages/list-passwd/list-passwd';
 import { LoginPage } from '../pages/login/login';
-import { AddPasswdPage } from '../pages/add-passwd/add-passwd';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from '@angular/common/http';
-import { PasswordProvider } from '../providers/password/password';
+import { PasswordProvider } from '../providers/password/password.service';
+import { PasswdDetailsPage } from '../pages/passwd-details/passwd-details';
+import { AddPasswordPage } from '../pages/add-paddwd/add-passwd';
 
 @NgModule({
   declarations: [
     MyApp,
     ListPasswordPage,
     LoginPage,
-    AddPasswdPage
+    PasswdDetailsPage,
+    AddPasswordPage,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { PasswordProvider } from '../providers/password/password';
     MyApp,
     ListPasswordPage,
     LoginPage,
-    AddPasswdPage
+    PasswdDetailsPage,
+    AddPasswordPage,
   ],
   providers: [
     StatusBar,

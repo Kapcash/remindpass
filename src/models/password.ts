@@ -1,9 +1,30 @@
 export class Password {
 
-  constructor(public name: string, public username: string, public password: string, public icon: string){
+  /**
+   * The unique id of the password, refered by its name
+   */
+  private id: string;
+
+  public name: string;
+  public username: string;
+  public password: string;
+  public icon: string;
+  public lastEdited: Date;
+
+  constructor(name: string, username: string, password: string, icon: string) {
+    this.name = name;
+    this.username = username;
+    this.password = password;
+    this.icon = icon;
+    this.id = name;
+    this.lastEdited = new Date();
   }
 
   static createEmptyPassword () {
     return new Password('', '', '', ''); // TODO: Give a '?' icon by default
+  }
+
+  getId() {
+    return this.id;
   }
 }

@@ -6,23 +6,29 @@
 
 <ion-content [ngClass]="{'blur': !isLoggedIn}">
   <ion-list>
-    <button ion-item *ngFor="let item of passwords" (click)="goToPasswdDetails($event, item)">
-      <ion-icon name="{{item.icon}}" item-left></ion-icon>
-      {{item.name}}
-      <div class="item-note" item-right>
-        {{item.passwd}}
-      </div>
+    <button ion-item *ngFor="let passwd of passwords" (click)="goToPasswdDetails($event, passwd)">
+      <ion-icon name="{{passwd.icon}}" item-start></ion-icon>
+      <span>{{passwd.name}}</span>
+      <ion-note item-end class="small-date">
+        {{passwd.lastEdited | date : 'dd/MM/yyyy HH:mm'}}
+      </ion-note>
     </button>
   </ion-list>
+
+  <!-- FOOTER -->
+  <ion-footer>
+    <ion-toolbar>
+      <ion-searchbar
+        [(ngModel)]="searchInput"
+        showCancelButton=true>
+      </ion-searchbar>
+    </ion-toolbar>
+  </ion-footer>
+
+  <!-- FAB: Add password -->
   <ion-fab bottom right>
-    <button ion-fab (click)="addPassdw()">
+    <button ion-fab color="secondary" (click)="addPassdw()">
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>
-  <ion-searchbar
-    [(ngModel)]="myInput"
-    [showCancelButton]="shouldShowCancel"
-    (ionInput)="onInput($event)"
-    (ionCancel)="onCancel($event)">
-  </ion-searchbar>
 </ion-content>
