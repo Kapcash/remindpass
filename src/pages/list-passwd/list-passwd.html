@@ -6,7 +6,7 @@
 
 <ion-content [ngClass]="{'blur': !isLoggedIn}">
   <ion-list>
-    <button ion-item *ngFor="let passwd of passwords" (click)="goToPasswdDetails($event, passwd)">
+    <button ion-item *ngFor="let passwd of passwords | async" (click)="goToPasswdDetails($event, passwd)">
       <ion-icon name="{{passwd.icon}}" item-start></ion-icon>
       <span>{{passwd.name}}</span>
       <ion-note item-end class="small-date">

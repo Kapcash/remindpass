@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { RemindPassApp } from './app.component';
+import { File } from '@ionic-native/file';
 
 import { ListPasswordPage } from '../pages/list-passwd/list-passwd';
 import { LoginPage } from '../pages/login/login';
@@ -15,7 +16,7 @@ import { AddPasswordPage } from '../pages/add-paddwd/add-passwd';
 
 @NgModule({
   declarations: [
-    MyApp,
+    RemindPassApp,
     ListPasswordPage,
     LoginPage,
     PasswdDetailsPage,
@@ -24,11 +25,11 @@ import { AddPasswordPage } from '../pages/add-paddwd/add-passwd';
   imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(RemindPassApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    RemindPassApp,
     ListPasswordPage,
     LoginPage,
     PasswdDetailsPage,
@@ -38,6 +39,7 @@ import { AddPasswordPage } from '../pages/add-paddwd/add-passwd';
     StatusBar,
     SplashScreen,
     PasswordProvider,
+    File,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
   ]
 })
