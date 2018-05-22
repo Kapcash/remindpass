@@ -12,7 +12,7 @@ import { AddPasswordPage } from '../add-paddwd/add-passwd';
 })
 export class ListPasswordPage {
   icons: Array<string>;
-  passwords: Array<Password>;
+  passwords: Promise<Array<Password>>;
   isLoggedIn = false;
   searchInput: string;
 

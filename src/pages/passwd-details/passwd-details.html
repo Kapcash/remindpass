@@ -7,6 +7,9 @@
       <button ion-button (click)="edit()">
         <ion-icon name="create"></ion-icon>
       </button>
+      <button ion-button (click)="remove()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
     </ion-buttons>
     <ion-buttons end>
       <button ion-button (click)="dismiss(false)">
@@ -38,7 +41,7 @@
     <ion-item>
       <span>Password</span>
       <ion-note item-end>
-        {{selectedItem.password}}
+        {{shownPassword}}
       </ion-note>
     </ion-item>
     <ion-item>

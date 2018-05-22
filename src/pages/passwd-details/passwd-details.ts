@@ -12,6 +12,7 @@ import { AddPasswordPage } from '../add-paddwd/add-passwd';
 })
 export class PasswdDetailsPage {
   selectedItem: Password;
+  shownPassword: string;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -19,6 +20,7 @@ export class PasswdDetailsPage {
     public modalCtrl: ModalController,
     public passwordProvider: PasswordProvider) {
       this.selectedItem = navParams.get('item');
+      this.shownPassword = this.passwordProvider.decodePassword(this.selectedItem.password.toString());
   }
 
   edit() {
@@ -27,6 +29,12 @@ export class PasswdDetailsPage {
       password: this.selectedItem,
     });
     editModal.present();
+  }
+
+  remove() {
+    this.passwordProvider.removePassword(this.selectedItem);
+    // TODO: Toast "Password successfully removed"
+    this.dismiss();
   }
 
   dismiss () {
