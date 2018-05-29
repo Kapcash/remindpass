@@ -24,10 +24,14 @@ export class PasswordProvider {
    * Get all registered passwords
    */
   getPasswords(): Promise<Array<Password>> {
+    // If the local copy is empty, it means we haven't read the file yet
+    if (this._passwords.length !== 0) {
+      return Promise.resolve(this._passwords);
+    }
     // We read the local file to retrieved all stored passwords
     return this.readPasswordsFromStorageFile().then((passwords) => {
       this._passwords = passwords;
-      return _.sortBy(this._passwords, (elem) => elem.name);
+      return this._passwords;
     });
     // return this.deleteStorageFile().then((elem) => {
     //   return null;
@@ -119,9 +123,9 @@ export class PasswordProvider {
   readPasswordsFromStorageFile(): Promise<Array<Password>> {
     return this.platform.ready().then(() => {
       // If the local copy is empty, it means we haven't read the file yet
-      if (this._passwords.length !== 0) {
-        return this._passwords;
-      }
+      // if (this._passwords.length !== 0) {
+      //   return this._passwords;
+      // }
       return this.file.readAsText(this.file.dataDirectory, this.storageFileName)
         .then((res) => {
           console.log('RES:' + res);
@@ -140,16 +144,7 @@ export class PasswordProvider {
           console.error('[READ] ERR1: ' + JSON.stringify(error));
           // If the file doesn't exists
           if (error.code === 1) {
-            // We create the empty file
-            return this.file.createFile(this.file.dataDirectory, this.storageFileName, false)
-              .then((file) => {
-                console.info('Empty file ' + file.name + ' created.');
-                return new Array<Password>();
-              })
-              .catch((error) => {
-                console.error('[READ] ERR2:' + error.message);
-                return null;
-              });
+            return new Array<Password>();
           }
         });
     });
@@ -162,10 +157,10 @@ export class PasswordProvider {
   writePasswordToStorageFile(pass: Password): Promise<boolean> {
     return this.platform.ready().then(() => {
       // Check if the file exists
-      return this.file.checkFile(this.file.dataDirectory, this.storageFileName)
-      .then((fileExists) => {
-        // If the file exists
-        if(fileExists) {
+      // return this.file.checkFile(this.file.dataDirectory, this.storageFileName)
+      // .then((fileExists) => {
+      //   // If the file exists
+      //   if(fileExists) {
           // Then we append the password into the file
           return this.file.writeFile(this.file.dataDirectory,
             this.storageFileName,
@@ -179,24 +174,27 @@ export class PasswordProvider {
             console.error('[WRITE] ERR1:' + error.message);
             return false;
           });
-        } else {
-          // else, we create the file with the first password to write
-          return this.file.writeFile(this.file.dataDirectory, this.storageFileName, pass.toString())
-          .then((file) => {
-            console.info('New storage file ' + file.name + ' created.');
-            return true;
-          })
-          .catch((error) => {
-            console.error('[WRITE] ERR2:' + error.message);
-            return false;
-          });
-        }
-      })
-      .catch((error) => {
-        // If the file doesn't exists yet, we create it
-        console.error('[WRITE] ERR3: ' + error.message);
-        return false;
-      });
+      //   } else {
+      //     // else, we create the file with the first password to write
+      //     return this.file.writeFile(this.file.dataDirectory,
+      //       this.storageFileName,
+      //       pass.toString(),
+      //       {append: false, replace: true})
+      //     .then((file) => {
+      //       console.info('New storage file ' + file.name + ' created.');
+      //       return true;
+      //     })
+      //     .catch((error) => {
+      //       console.error('[WRITE] ERR2:' + error.message);
+      //       return false;
+      //     });
+      //   }
+      // })
+      // .catch((error) => {
+      //   // If the file doesn't exists yet, we create it
+      //   console.error('[WRITE] ERR3: ' + error.message);
+      //   return false;
+      // });
     });
   }
 
