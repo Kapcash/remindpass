@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { PasswdDetailsPage } from '../passwd-details/passwd-details';
-import { Password } from '../../models/password';
 import { PasswordProvider } from '../../providers/password/password.service';
 import { AddPasswordPage } from '../add-paddwd/add-passwd';
+import { Password } from '../../models/password';
 
 @Component({
   selector: 'page-list-passwd',
@@ -12,15 +12,18 @@ import { AddPasswordPage } from '../add-paddwd/add-passwd';
 })
 export class ListPasswordPage {
   icons: Array<string>;
-  passwords: Promise<Array<Password>>;
   isLoggedIn = false;
   searchInput: string;
+  passwords: Promise<Array<Password>>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl: ModalController, public passwordProvider: PasswordProvider) {
       // Always ask for authentication
       this.presentLoginModal();
-      this.passwords = this.passwordProvider.getPasswords();
+  }
+
+  ngOnInit() {
+    this.passwords = this.passwordProvider.getPasswords();
   }
 
   /**
@@ -44,6 +47,9 @@ export class ListPasswordPage {
     const detailsModal = this.modalCtrl.create(PasswdDetailsPage, {
       item: item,
     });
+    detailsModal.onDidDismiss((data) => {
+      this.passwords = this.passwordProvider.getPasswords();
+    });
     detailsModal.present();
   }
 
@@ -52,6 +58,9 @@ export class ListPasswordPage {
    */
   addPassdw() {
     const addModal = this.modalCtrl.create(AddPasswordPage);
+    addModal.onDidDismiss((data) => {
+      this.passwords = this.passwordProvider.getPasswords();
+    });
     addModal.present();
   }
 }

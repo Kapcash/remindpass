@@ -3,6 +3,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { RemindPassApp } from './app.component';
 import { File } from '@ionic-native/file';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { ListPasswordPage } from '../pages/list-passwd/list-passwd';
 import { LoginPage } from '../pages/login/login';
@@ -26,6 +27,7 @@ import { AddPasswordPage } from '../pages/add-paddwd/add-passwd';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(RemindPassApp),
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
