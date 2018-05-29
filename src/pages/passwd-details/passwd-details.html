@@ -41,8 +41,9 @@
     <ion-item>
       <span>Password</span>
       <ion-note item-end>
-        {{shownPassword}}
+        <span>{{showClearPassword ? shownPassword : hidedStr}}</span>
       </ion-note>
+      <ion-icon item-end name="eye" color="{{showClearPassword ? 'secondary' : 'black'}}" (click)="showPassword()"></ion-icon>
     </ion-item>
     <ion-item>
       <span>Last edition date</span>

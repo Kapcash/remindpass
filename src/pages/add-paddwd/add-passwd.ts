@@ -18,6 +18,8 @@ export class AddPasswordPage {
       this.newPassword = this.navParams.get('password');
       if (!this.newPassword) {
         this.newPassword = Password.createEmptyPassword();
+      } else {
+        this.newPassword.password = this.passwordProvider.decodePassword(this.newPassword.password);
       }
   }
 

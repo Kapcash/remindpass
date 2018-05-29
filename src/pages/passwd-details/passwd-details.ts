@@ -12,6 +12,8 @@ import { AddPasswordPage } from '../add-paddwd/add-passwd';
 export class PasswdDetailsPage {
   selectedItem: Password;
   shownPassword: string;
+  showClearPassword: boolean = false;
+  hidedStr: string = '•••••';
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -38,6 +40,10 @@ export class PasswdDetailsPage {
       duration: 2000
     }).present();
     this.dismiss();
+  }
+
+  showPassword() {
+    this.showClearPassword = !this.showClearPassword;
   }
 
   dismiss () {
