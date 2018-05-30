@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController, ModalController, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, ModalController, ToastController, AlertController } from 'ionic-angular';
 import { Password } from '../../models/password';
 import { PasswordProvider } from '../../providers/password/password.service';
 import { AddPasswordPage } from '../add-paddwd/add-passwd';
@@ -20,6 +20,7 @@ export class PasswdDetailsPage {
     public viewCtrl: ViewController,
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
+    public alertCtrl: AlertController,
     public passwordProvider: PasswordProvider) {
       this.selectedItem = navParams.get('item');
       this.shownPassword = this.passwordProvider.decodePassword(this.selectedItem.password.toString());
@@ -34,12 +35,33 @@ export class PasswdDetailsPage {
   }
 
   remove() {
-    this.passwordProvider.removePassword(this.selectedItem);
-    this.toastCtrl.create({
-      message: 'Password was removed successfully',
-      duration: 2000
-    }).present();
-    this.dismiss();
+    const alertConfirmation = this.alertCtrl.create({
+      title: 'Are you sure?',
+      subTitle: 'Please confirm you want to delete the password \'' + this.selectedItem.name + '\'',
+      buttons: [
+        {
+          text: 'Remove',
+          handler: () => {
+            // Action confirmed
+            // Remove the password
+            this.passwordProvider.removePassword(this.selectedItem);
+            this.toastCtrl.create({
+              message: 'Password was removed successfully',
+              duration: 2000
+            }).present();
+            this.dismiss();
+          }
+        },
+        {
+          text: 'Cancel',
+          handler: () => {
+            // Action canceled
+            // Do nothing but dismiss the alert
+          }
+        }
+      ]
+    });
+    alertConfirmation.present();
   }
 
   showPassword() {

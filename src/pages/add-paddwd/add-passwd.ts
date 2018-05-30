@@ -24,6 +24,7 @@ export class AddPasswordPage {
   }
 
   savePasswd () {
+    this.newPassword.password = this.passwordProvider.encodePassword(this.newPassword.password);
     this.passwordProvider.addPassword(this.newPassword);
     this.dismiss(true);
   }

@@ -27,7 +27,7 @@ export class PasswordProvider {
   getPasswords(): Promise<Array<Password>> {
     // We read the local file to retrieved all stored passwords
     return this.storage.get(STORAGE_KEY).then((passwords) => {
-      console.log(JSON.stringify(passwords));
+      console.log('PASSWORDS GET: ' + JSON.stringify(passwords));
       if (passwords) {
         return passwords;
       } else {
@@ -45,7 +45,7 @@ export class PasswordProvider {
       icon = 'help';
     }
     // Encrypt password
-    password = this.encodePassword(password).toString();
+    password = this.encodePassword(password);
     const newPasswd = new Password(name, username, password, icon);
     // Don't add if it already contains the same password
     this.containsThisPassword(newPasswd).then((contains) => {
@@ -89,8 +89,8 @@ export class PasswordProvider {
   /**
    * Encode the password with AES
    */
-  encodePassword(passwordStr: string) {
-    return AES.encrypt(passwordStr, this.aesKey);
+  encodePassword(passwordStr: string): string {
+    return AES.encrypt(passwordStr, this.aesKey).toString();
   }
 
   /**

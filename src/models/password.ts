@@ -27,8 +27,4 @@ export class Password {
   getId() {
     return this.id;
   }
-
-  toString(): string {
-    return '{"name": "' + this.name + '", "username": "' + this.username + '","password": "' + this.password + '","icon": "' + this.icon + '","lastEdited": "' + this.lastEdited + '"}';
-  }
 }

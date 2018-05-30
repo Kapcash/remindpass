@@ -13,7 +13,7 @@ import { Password } from '../../models/password';
 export class ListPasswordPage {
   icons: Array<string>;
   isLoggedIn = false;
-  searchInput: string;
+  searchFilter: string;
   passwords: Promise<Array<Password>>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,

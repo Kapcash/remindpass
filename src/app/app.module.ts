@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { RemindPassApp } from './app.component';
 import { File } from '@ionic-native/file';
 import { IonicStorageModule } from '@ionic/storage';
+import { FilterPasswordsPipe } from '../providers/filterPasswords.pipe';
 
 import { ListPasswordPage } from '../pages/list-passwd/list-passwd';
 import { LoginPage } from '../pages/login/login';
@@ -22,6 +23,7 @@ import { AddPasswordPage } from '../pages/add-paddwd/add-passwd';
     LoginPage,
     PasswdDetailsPage,
     AddPasswordPage,
+    FilterPasswordsPipe,
   ],
   imports: [
     BrowserModule,

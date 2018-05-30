@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "RemindPass",
+  "short_name": "RemindPass",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
