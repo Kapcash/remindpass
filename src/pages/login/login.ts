@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth.service';
 
 @Component({
   selector: 'page-login',
@@ -7,11 +8,14 @@ import { NavController, ViewController } from 'ionic-angular';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController) {
-  }
+  public registerNewPassword: boolean = false;
 
-  auth() {
-    // TODO: Use TouchID or pin code
-    this.viewCtrl.dismiss({'isAuthenticated': true});
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController,
+    public auth: AuthProvider) {
+    this.auth.rootPasswordExists().then((exists) => {
+      if (!exists) {
+        this.registerNewPassword = true;
+      }
+    });
   }
 }

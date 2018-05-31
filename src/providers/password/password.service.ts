@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Password } from '../../models/password';
-import { File } from '@ionic-native/file';
 import { Platform } from 'ionic-angular';
 import { AES, enc } from 'crypto-js';
 import _ from 'lodash';
@@ -10,15 +9,13 @@ const STORAGE_KEY: string = 'passwds';
 @Injectable()
 export class PasswordProvider {
 
-  // private storagePath: string = this.file.dataDirectory;
-  private storageFileName: string = 'remindPass.pswd';
   /**
    * Local cache copy of passwords written in the local file
    */
   private _passwords: Array<Password>;
   private aesKey: string = 'ma cle secrete temporaire';
 
-  constructor(private file: File, public platform: Platform, public storage: Storage) {
+  constructor(public platform: Platform, public storage: Storage) {
   }
 
   /**
@@ -75,7 +72,7 @@ export class PasswordProvider {
   }
 
   storePassword(passwdList) {
-    return this.storage.set(STORAGE_KEY, passwdList);
+    this.storage.set(STORAGE_KEY, passwdList);
   }
 
   containsThisPassword(password: Password): Promise<boolean> {

@@ -1,20 +1,13 @@
 page-login {
   background-color: rgba(40, 43, 75, 0.80);
-
   .wrapper-modal-page {
     margin-top: 25%;
     background-color: rgba(52, 208, 98, 0.80);
     border-radius: 100%/15% 15% 0 0;
-
     .content {
       display: flex;
       align-items: center;
       flex-direction: column;
-
-      #touchid {
-        font-size: 3.5em;
-        margin-bottom: 5%;
-      }
     }
   }
 }
