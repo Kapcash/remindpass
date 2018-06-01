@@ -1,0 +1,24 @@
+{
+  "myPasswords": "My passwords",
+  "passwordInformation": "Password information",
+  "createPassword": "Create password",
+  "noPasswordsFilter": "No passwords found!",
+  "enterPassword": "Please enter your password",
+  "enterButton": "Enter",
+  "setPasswordButton": "Set password",
+  "icon": "Icon",
+  "name": "Name",
+  "username": "Login",
+  "password": "Password",
+  "lastEditionDate": "Last edition date",
+  "save": "Save",
+  "placeholders": {
+    "search": "Filter passwords",
+    "password": "Password",
+    "confirmPassword": "Confirm password"
+  },
+  "errors": {
+    "passwordsNotSame": "The passwords are not identicals",
+    "passwordPattern": "The password is incorrect"
+  }
+}

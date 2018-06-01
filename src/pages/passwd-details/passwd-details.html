@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Password information
+      {{'passwordInformation' | translate}}
     </ion-title>
     <ion-buttons start>
       <button ion-button (click)="edit()">
@@ -23,30 +23,30 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <span>Icon</span>
+      <span>{{'icon' | translate}}</span>
       <ion-icon name="{{selectedItem.icon}}" item-end></ion-icon>
     </ion-item>
     <ion-item>
-      <span>Name</span>
+      <span>{{'name' | translate}}</span>
       <ion-note item-end>
         {{selectedItem.name}}
       </ion-note>
     </ion-item>
     <ion-item>
-      <span>Username</span>
+      <span>{{'username' | translate}}</span>
       <ion-note item-end>
         {{selectedItem.username}}
       </ion-note>
     </ion-item>
     <ion-item>
-      <span>Password</span>
+      <span>{{'password' | translate}}</span>
       <ion-note item-end>
         <span>{{showClearPassword ? shownPassword : hidedStr}}</span>
       </ion-note>
       <ion-icon item-end name="eye" color="{{showClearPassword ? 'secondary' : 'black'}}" (click)="showPassword()"></ion-icon>
     </ion-item>
     <ion-item>
-      <span>Last edition date</span>
+      <span>{{'lastEditionDate' | translate}}</span>
       <ion-note item-end>
         {{selectedItem.lastEdited | date : 'dd/MM/yyyy HH:mm'}}
       </ion-note>

@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ListPasswordPage } from '../pages/list-passwd/list-passwd';
 import { LoginPage } from '../pages/login/login';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,8 +20,12 @@ export class RemindPassApp {
     public menu: MenuController,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    public modalCtrl: ModalController
+    public modalCtrl: ModalController,
+    private translate: TranslateService
   ) {
+    this.translate.setDefaultLang('en');
+    const userLang = navigator.language.split('-')[0];
+    this.translate.use(userLang);
     this.initializeApp();
   }
 

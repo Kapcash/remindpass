@@ -1,0 +1,24 @@
+{
+  "myPasswords": "Mes mots de passe",
+  "passwordInformation": "Détails",
+  "createPassword": "Ajouter un mot de passe",
+  "noPasswordsFilter": "Aucun mot de passe correspondant",
+  "enterPassword": "Entrez votre mot de passe",
+  "enterButton": "Entrer",
+  "setPasswordButton": "Confirmer",
+  "icon": "Icône",
+  "name": "Nom",
+  "username": "Login",
+  "password": "Mot de passe",
+  "lastEditionDate": "Date de mise à jour",
+  "save": "Sauvegarder",
+  "placeholders": {
+    "search": "Filtrer les mots de passe",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe"
+  },
+  "errors": {
+    "passwordsNotSame": "Les mots de passe sont différents",
+    "passwordPattern": "Le mot de passe est incorrecte"
+  }
+}
