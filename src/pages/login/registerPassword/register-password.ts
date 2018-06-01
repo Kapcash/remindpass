@@ -19,7 +19,7 @@ export class RegisterPassword {
 
   private passwdForm: FormGroup;
   private minLengthPassword: number = 8;
-  private passwordPattern: RegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]+$/;
+  // private passwordPattern: RegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]+$/;
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController,
     public auth: AuthProvider, private formBuilder: FormBuilder) {

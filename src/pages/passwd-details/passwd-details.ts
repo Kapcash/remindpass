@@ -23,7 +23,7 @@ export class PasswdDetailsPage {
     public alertCtrl: AlertController,
     public passwordProvider: PasswordProvider) {
       this.selectedItem = navParams.get('item');
-      this.shownPassword = this.passwordProvider.decodePassword(this.selectedItem.password.toString());
+      this.shownPassword = this.passwordProvider.decodePassword(this.selectedItem.password);
   }
 
   edit() {

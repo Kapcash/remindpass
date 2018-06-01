@@ -12,30 +12,16 @@ import { Password } from '../../models/password';
 })
 export class ListPasswordPage {
   icons: Array<string>;
-  isLoggedIn = false;
+  isLoggedIn = true;
   searchFilter: string;
   passwords: Promise<Array<Password>>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public modalCtrl: ModalController, public passwordProvider: PasswordProvider) {
-      // Always ask for authentication
-      this.presentLoginModal();
   }
 
   ngOnInit() {
     this.passwords = this.passwordProvider.getPasswords();
-  }
-
-  /**
-   * Open the login modal to authenticate
-   */
-  presentLoginModal() {
-    const loginModal = this.modalCtrl.create(LoginPage, null, { enableBackdropDismiss: false });
-    this.isLoggedIn = false;
-    loginModal.onDidDismiss((data) => {
-      this.isLoggedIn = data.isAuthenticated;
-    });
-    loginModal.present();
   }
 
   /**

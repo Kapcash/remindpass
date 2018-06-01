@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { RemindPassApp } from './app.component';
-import { File } from '@ionic-native/file';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 import { IonicStorageModule } from '@ionic/storage';
 import { FilterPasswordsPipe } from '../providers/filterPasswords.pipe';
 
@@ -48,7 +48,7 @@ import { AuthProvider } from '../providers/auth/auth.service';
     StatusBar,
     SplashScreen,
     PasswordProvider,
-    File,
+    FingerprintAIO,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthProvider,
   ]

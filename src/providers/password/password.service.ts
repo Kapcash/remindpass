@@ -24,7 +24,6 @@ export class PasswordProvider {
   getPasswords(): Promise<Array<Password>> {
     // We read the local file to retrieved all stored passwords
     return this.storage.get(STORAGE_KEY).then((passwords) => {
-      console.log('PASSWORDS GET: ' + JSON.stringify(passwords));
       if (passwords) {
         return passwords;
       } else {

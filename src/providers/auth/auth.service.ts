@@ -1,14 +1,39 @@
 import { Injectable } from '@angular/core';
-import { SHA256, enc } from 'crypto-js';
+import { SHA256 } from 'crypto-js';
+import { Platform } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import _ from 'lodash';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 
 const STORAGE_KEY = 'rootHash';
 
 @Injectable()
 export class AuthProvider {
 
-  constructor(public storage: Storage) {
+  private fingerPrintOpts: any;
+
+  constructor(public storage: Storage, public faio: FingerprintAIO, public platform: Platform) {
+    this.fingerPrintOpts = {
+      clientId: 'Fingerprint-RemindPass',
+      clientSecret: 'fingerprintPassword',
+      disableBackup: true,
+      localizedFallbackTitle: 'Use Pin',
+      localizedReason: 'Please authenticate'
+    };
+  }
+
+  async askFingerPrint() {
+    try {
+      await this.platform.ready();
+      const isAvailable = await this.faio.isAvailable();
+      if (isAvailable) {
+        return this.faio.show(this.fingerPrintOpts)
+        .then((res) => {
+          return res;
+        });
+      }
+    } catch (e) {
+      throw e;
+    }
   }
 
   /**
@@ -43,7 +68,7 @@ export class AuthProvider {
   /**
    * Check whether the root password exists or not
    */
-  rootPasswordExists() : Promise<boolean> {
+  rootPasswordExists(): Promise<boolean> {
     return this.storage.get(STORAGE_KEY).then((storedPassword: string) => {
       return !!storedPassword;
     });
