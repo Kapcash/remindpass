@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
-import { LoginPage } from '../login/login';
 import { PasswdDetailsPage } from '../passwd-details/passwd-details';
 import { PasswordProvider } from '../../providers/password/password.service';
 import { AddPasswordPage } from '../add-paddwd/add-passwd';

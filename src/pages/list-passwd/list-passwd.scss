@@ -12,4 +12,14 @@ page-list-passwd {
   .small-date{
     font-size: 1.4rem;
   }
+
+  .emptyList{
+    position: absolute;
+    color: #b7b7b7;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
 }
