@@ -22,6 +22,8 @@ import { ListPasswordPage } from '../pages/list-passwd/list-passwd';
 import { PasswdDetailsPage } from '../pages/passwd-details/passwd-details';
 import { AddPasswordPage } from '../pages/add-paddwd/add-passwd';
 
+import { SettingsModule } from '../pages/settings/settings.module';
+
 export function createTranslateLoader(http: HttpClient) { // tslint:disable-line
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -48,6 +50,7 @@ export function createTranslateLoader(http: HttpClient) { // tslint:disable-line
         deps: [HttpClient],
       }
     }),
+    SettingsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

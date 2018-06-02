@@ -3,6 +3,7 @@ import { NavController, NavParams, ViewController, ModalController, ToastControl
 import { Password } from '../../models/password';
 import { PasswordProvider } from '../../providers/password/password.service';
 import { AddPasswordPage } from '../add-paddwd/add-passwd';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class PasswdDetailsPage {
     public modalCtrl: ModalController,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
+    public translate: TranslateService,
     public passwordProvider: PasswordProvider) {
       this.selectedItem = navParams.get('item');
       this.shownPassword = this.passwordProvider.decodePassword(this.selectedItem.password);
@@ -34,26 +36,29 @@ export class PasswdDetailsPage {
     editModal.present();
   }
 
+  /**
+   * Definitely Delete the selected password
+   */
   remove() {
     const alertConfirmation = this.alertCtrl.create({
-      title: 'Are you sure?',
-      subTitle: 'Please confirm you want to delete the password \'' + this.selectedItem.name + '\'',
+      title: this.translate.instant('sure?'),
+      subTitle: this.translate.instant('confirmSentence', {'name': this.selectedItem.name}),
       buttons: [
         {
-          text: 'Remove',
+          text: this.translate.instant('remove'),
           handler: () => {
             // Action confirmed
             // Remove the password
             this.passwordProvider.removePassword(this.selectedItem);
             this.toastCtrl.create({
-              message: 'Password was removed successfully',
+              message: this.translate.instant('removeSuccess'),
               duration: 2000
             }).present();
             this.dismiss();
           }
         },
         {
-          text: 'Cancel',
+          text: this.translate.instant('cancel'),
           handler: () => {
             // Action canceled
             // Do nothing but dismiss the alert

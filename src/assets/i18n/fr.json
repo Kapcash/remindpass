@@ -12,6 +12,13 @@
   "password": "Mot de passe",
   "lastEditionDate": "Date de mise à jour",
   "save": "Sauvegarder",
+  "sure?": "Êtes-vous sûr ?",
+  "confirmSentence": "Voulez-vous vraiment supprimer le mot de passe '{{name}}'",
+  "remove": "Supprimer",
+  "removeSuccess": "Le mot de passe a bien été supprimé",
+  "cancel": "Annuler",
+  "deleteRootPasswd": "Réinitialiser mot de passe",
+  "settings": "Paramètres",
   "placeholders": {
     "search": "Filtrer les mots de passe",
     "password": "Mot de passe",

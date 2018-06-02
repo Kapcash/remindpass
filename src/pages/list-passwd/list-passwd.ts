@@ -4,6 +4,7 @@ import { PasswdDetailsPage } from '../passwd-details/passwd-details';
 import { PasswordProvider } from '../../providers/password/password.service';
 import { AddPasswordPage } from '../add-paddwd/add-passwd';
 import { Password } from '../../models/password';
+import { SettingsPage } from '../settings/settings';
 
 @Component({
   selector: 'page-list-passwd',
@@ -47,5 +48,9 @@ export class ListPasswordPage {
       this.passwords = this.passwordProvider.getPasswords();
     });
     addModal.present();
+  }
+
+  openSettingsPage() {
+    this.navCtrl.push(SettingsPage);
   }
 }

@@ -74,9 +74,11 @@ export class AuthProvider {
     });
   }
 
+  /**
+   * Delete the root password of the app
+   */
   deleteRootPassword() {
-    this.storage.remove(STORAGE_KEY).then((res) => {
-    });
+    return this.storage.remove(STORAGE_KEY);
   }
 
 }

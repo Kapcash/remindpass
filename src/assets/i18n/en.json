@@ -12,6 +12,13 @@
   "password": "Password",
   "lastEditionDate": "Last edition date",
   "save": "Save",
+  "sure?": "Are you sure?",
+  "confirmSentence": "Please confirm you want to delete the password '{{name}}'",
+  "remove": "Remove",
+  "removeSuccess": "Password was removed successfully",
+  "cancel": "Cancel",
+  "deleteRootPasswd": "Reset root password",
+  "settings": "Settings",
   "placeholders": {
     "search": "Filter passwords",
     "password": "Password",

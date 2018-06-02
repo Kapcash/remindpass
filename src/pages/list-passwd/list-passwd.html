@@ -1,10 +1,16 @@
-<ion-header >
+<ion-header>
   <ion-navbar>
     <ion-title>{{'myPasswords' | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="openSettingsPage()">
+        <span ion-text color="primary" showWhen="ios">{{'cancel' | translate}}</span>
+        <ion-icon name="settings"  showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content >
+<ion-content>
   <p align="center" class="emptyList">{{'noPasswordsFilter' | translate}}</p>
   <ion-list>
     <button ion-item *ngFor="let passwd of passwords | async | filterPasswords: searchFilter" (click)="goToPasswdDetails($event, passwd)">
@@ -21,8 +27,7 @@
     <ion-toolbar>
       <ion-searchbar
         placeholder="{{'placeholders.search' | translate}}"
-        [(ngModel)]="searchFilter"
-        showCancelButton=true>
+        [(ngModel)]="searchFilter">
       </ion-searchbar>
     </ion-toolbar>
   </ion-footer>
