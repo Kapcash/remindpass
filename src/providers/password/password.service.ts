@@ -49,7 +49,7 @@ export class PasswordProvider {
         });
       } else {
         this.toastCtrl.create({
-          message: this.translate.instant('alreadyExists'),
+          message: this.translate.instant('errors.alreadyExists'),
           duration: 1500
         }).present();
       }

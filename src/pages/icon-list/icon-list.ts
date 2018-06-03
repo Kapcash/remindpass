@@ -14,7 +14,7 @@ export class IconListPage {
   'trophy', 'help-circle', 'add', 'search',
   'attach', 'camera', 'color-palette', 'contact',
   'football', 'heart', 'mail', 'pin',
-  'settings', 'star', 'mail', 'thumbs-up',
+  'settings', 'star', 'thumbs-up',
   'pizza', 'moon', 'musical-notes', 'key'];
 
   constructor (public navCtrl: NavController,

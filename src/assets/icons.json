@@ -1,0 +1,141 @@
+[{
+    "icon": "logo-apple",
+    "name": "Apple"
+  },
+  {
+    "icon": "logo-twitter",
+    "name": "Twitter"
+  },
+  {
+    "icon": "logo-facebook",
+    "name": "Facebook"
+  },
+  {
+    "icon": "logo-android",
+    "name": "Android"
+  },
+  {
+    "icon": "logo-linkedin",
+    "name": "LinkedIn"
+  },
+  {
+    "icon": "logo-google",
+    "name": "Google"
+  },
+  {
+    "icon": "logo-steam",
+    "name": "Steam"
+  },
+  {
+    "icon": "logo-windows",
+    "name": "Windows"
+  },
+  {
+    "icon": "logo-skype",
+    "name": "Skype"
+  },
+  {
+    "icon": "logo-snapchat",
+    "name": "Snapchat"
+  },
+  {
+    "icon": "logo-github",
+    "name": "Github"
+  },
+  {
+    "icon": "logo-dropbox",
+    "name": "Dropbox"
+  },
+  {
+    "icon": "logo-pinterest",
+    "name": "Pinterest"
+  },
+  {
+    "icon": "logo-youtube",
+    "name": "Youtube"
+  },
+  {
+    "icon": "logo-whatsapp",
+    "name": "what's App"
+  },
+  {
+    "icon": "logo-twitch",
+    "name": "Twitch"
+  },
+  {
+    "icon": "trophy",
+    "name": "Trophy"
+  },
+  {
+    "icon": "help-circle",
+    "name": "Question"
+  },
+  {
+    "icon": "add",
+    "name": ""
+  },
+  {
+    "icon": "search",
+    "name": ""
+  },
+  {
+    "icon": "attach",
+    "name": ""
+  },
+  {
+    "icon": "camera",
+    "name": ""
+  },
+  {
+    "icon": "color-palette",
+    "name": ""
+  },
+  {
+    "icon": "contact",
+    "name": ""
+  },
+  {
+    "icon": "football",
+    "name": ""
+  },
+  {
+    "icon": "heart",
+    "name": ""
+  },
+  {
+    "icon": "mail",
+    "name": ""
+  },
+  {
+    "icon": "pin",
+    "name": ""
+  },
+  {
+    "icon": "settings",
+    "name": ""
+  },
+  {
+    "icon": "star",
+    "name": ""
+  },
+  {
+    "icon": "thumbs-up",
+    "name": ""
+  },
+  {
+    "icon": "pizza",
+    "name": ""
+  },
+  {
+    "icon": "moon",
+    "name": ""
+  },
+  {
+    "icon": "musical-notes",
+    "name": ""
+  },
+  {
+    "icon": "key",
+    "name": ""
+  }
+]

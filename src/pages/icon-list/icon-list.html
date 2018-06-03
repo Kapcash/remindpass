@@ -19,6 +19,7 @@
         <button ion-button [name]="icon" (click)="chooseIcon(icon)" class="multiple">
           <ion-icon role="img" [name]="icon"></ion-icon>
         </button>
+        <span class="desc">{{'icons.' + icon | translate}}</span>
       </ion-col>
     </ion-row>
   </ion-grid>

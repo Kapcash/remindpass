@@ -46,7 +46,7 @@ export class AuthenticatePage {
 
   toastWrongPassword() {
     this.toastCtrl.create({
-      message: this.translate.instant('wrongPassword'),
+      message: this.translate.instant('errors.wrongPassword'),
       duration: 1500
     }).present();
   }
