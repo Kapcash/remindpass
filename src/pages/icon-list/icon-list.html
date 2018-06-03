@@ -16,7 +16,7 @@
   <ion-grid fixed>
     <ion-row wrap>
       <ion-col *ngFor="let icon of iconList">
-        <button ion-button [name]="icon" (click)="chooseIcon(icon)">
+        <button ion-button [name]="icon" (click)="chooseIcon(icon)" class="multiple">
           <ion-icon role="img" [name]="icon"></ion-icon>
         </button>
       </ion-col>
