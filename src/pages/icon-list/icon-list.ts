@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 
-import * as Multiple from '../../../node_modules/multiple.js/multiple.js';
 @Component({
   selector: 'page-icon-list',
   templateUrl: 'icon-list.html'
@@ -21,10 +20,6 @@ export class IconListPage {
   constructor (public navCtrl: NavController,
     public navParams: NavParams,
     public viewCtrl: ViewController) {
-    const background = new Multiple({
-      selector: '.multiple',
-      background: 'linear-gradient(164deg, #00b4ff, #002c8a)'
-    });
   }
 
   chooseIcon (icon: string) {

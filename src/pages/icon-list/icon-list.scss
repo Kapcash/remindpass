@@ -1,15 +1,14 @@
 page-icon-list {
   .button-md {
-    border-radius: 50px;
+    border-radius: 15px;
     background-color: #1a87e0;
     width: 6.2rem;
     height: 6.2rem;
     ion-icon {
       font-size: 40px;
     }
-  }
-  .multiple {
-    background-image: linear-gradient(164deg, #00b4ff, #002c8a);
-    background-attachment: fixed
+    &.activated {
+      background-color: #13bba2;
+    }
   }
 }
