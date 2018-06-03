@@ -2,6 +2,7 @@
   "myPasswords": "Mes mots de passe",
   "passwordInformation": "Détails",
   "createPassword": "Ajouter un mot de passe",
+  "iconList": "Sélectionner un icône",
   "noPasswordsFilter": "Aucun mot de passe correspondant",
   "enterPassword": "Entrez votre mot de passe",
   "enterButton": "Entrer",
@@ -19,6 +20,7 @@
   "cancel": "Annuler",
   "deleteRootPasswd": "Réinitialiser mot de passe",
   "settings": "Paramètres",
+  "chooseIcon": "Selectionner un icône",
   "placeholders": {
     "search": "Filtrer les mots de passe",
     "password": "Mot de passe",
@@ -26,6 +28,8 @@
   },
   "errors": {
     "passwordsNotSame": "Les mots de passe sont différents",
-    "passwordPattern": "Le mot de passe est incorrecte"
+    "passwordPattern": "Le mot de passe est incorrecte",
+    "wrongPassword": "Oups ! Mauvais mot de passe.",
+    "alreadyExists": "Désolé, un mot de passe avec ce nom existe déjà !"
   }
 }

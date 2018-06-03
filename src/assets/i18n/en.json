@@ -2,6 +2,7 @@
   "myPasswords": "My passwords",
   "passwordInformation": "Password information",
   "createPassword": "Create password",
+  "iconList": "Select an icon",
   "noPasswordsFilter": "No passwords found!",
   "enterPassword": "Please enter your password",
   "enterButton": "Enter",
@@ -19,6 +20,7 @@
   "cancel": "Cancel",
   "deleteRootPasswd": "Reset root password",
   "settings": "Settings",
+  "chooseIcon": "Select icon",
   "placeholders": {
     "search": "Filter passwords",
     "password": "Password",
@@ -26,6 +28,8 @@
   },
   "errors": {
     "passwordsNotSame": "The passwords are not identicals",
-    "passwordPattern": "The password is incorrect"
+    "passwordPattern": "The password is incorrect",
+    "wrongPassword": "Oops! Wrong password.",
+    "alreadyExists": "Sorry, a password with this name already exists!"
   }
 }

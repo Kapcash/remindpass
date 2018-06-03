@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-  <p align="center" class="emptyList">{{'noPasswordsFilter' | translate}}</p>
+  <p ion-fixed align="center">{{'noPasswordsFilter' | translate}}</p>
   <ion-list>
     <button ion-item *ngFor="let passwd of passwords | async | filterPasswords: searchFilter" (click)="goToPasswdDetails($event, passwd)">
       <ion-icon name="{{passwd.icon}}" item-start></ion-icon>

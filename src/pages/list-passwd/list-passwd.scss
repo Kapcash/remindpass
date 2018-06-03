@@ -9,17 +9,13 @@ page-list-passwd {
     bottom: 70px
   }
 
-  .small-date{
-    font-size: 1.4rem;
+  p[ion-fixed]{
+    z-index: 0;
+    color: #b7b7b7;
+    width: 100%;
   }
 
-  .emptyList{
-    position: absolute;
-    color: #b7b7b7;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+  .small-date{
+    font-size: 1.4rem;
   }
 }

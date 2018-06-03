@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../../providers/auth/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'page-authenticate',
@@ -12,7 +13,7 @@ export class AuthenticatePage {
   public submitAttempt: boolean = false;
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController,
-    public auth: AuthProvider, public toastCtrl: ToastController) {
+    public auth: AuthProvider, public toastCtrl: ToastController, public translate: TranslateService) {
   }
 
   /**
@@ -45,7 +46,7 @@ export class AuthenticatePage {
 
   toastWrongPassword() {
     this.toastCtrl.create({
-      message: 'Oops! Wrong password.',
+      message: this.translate.instant('wrongPassword'),
       duration: 1500
     }).present();
   }

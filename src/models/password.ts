@@ -3,7 +3,7 @@ export class Password {
   /**
    * The unique id of the password, refered by its name
    */
-  private id: string;
+  public id: number;
 
   public name: string;
   public username: string;
@@ -16,15 +16,11 @@ export class Password {
     this.username = username;
     this.password = password;
     this.icon = icon;
-    this.id = name;
     this.lastEdited = lastEdited ? lastEdited : new Date();
+    this.id = new Date().getUTCMilliseconds();
   }
 
   static createEmptyPassword () {
-    return new Password('', '', '', ''); // TODO: Give a '?' icon by default
-  }
-
-  getId() {
-    return this.id;
+    return new Password('', '', '', 'help-circle');
   }
 }

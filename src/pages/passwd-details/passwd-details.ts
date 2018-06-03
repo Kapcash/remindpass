@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController, ModalController, ToastController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, ModalController, ToastController, AlertController, IonicPage } from 'ionic-angular';
 import { Password } from '../../models/password';
 import { PasswordProvider } from '../../providers/password/password.service';
-import { AddPasswordPage } from '../add-paddwd/add-passwd';
+import { AddPasswordPage } from '../add-passwd/add-passwd';
 import { TranslateService } from '@ngx-translate/core';
 
-
+@IonicPage()
 @Component({
   selector: 'page-passwd-details',
   templateUrl: 'passwd-details.html'
@@ -25,15 +25,14 @@ export class PasswdDetailsPage {
     public translate: TranslateService,
     public passwordProvider: PasswordProvider) {
       this.selectedItem = navParams.get('item');
-      this.shownPassword = this.passwordProvider.decodePassword(this.selectedItem.password);
+  }
+
+  ionViewWillEnter() {
+    this.shownPassword = this.passwordProvider.decodePassword(this.selectedItem.password);
   }
 
   edit() {
-    this.dismiss();
-    const editModal = this.modalCtrl.create(AddPasswordPage, {
-      password: this.selectedItem,
-    });
-    editModal.present();
+    this.navCtrl.push(AddPasswordPage, {'editing': true, 'password': this.selectedItem});
   }
 
   /**
@@ -74,6 +73,6 @@ export class PasswdDetailsPage {
   }
 
   dismiss () {
-    this.viewCtrl.dismiss();
+    this.navCtrl.pop();
   }
 }

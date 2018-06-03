@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { PasswdDetailsPage } from '../passwd-details/passwd-details';
 import { PasswordProvider } from '../../providers/password/password.service';
-import { AddPasswordPage } from '../add-paddwd/add-passwd';
+import { AddPasswordPage } from '../add-passwd/add-passwd';
 import { Password } from '../../models/password';
 import { SettingsPage } from '../settings/settings';
 
@@ -20,7 +20,7 @@ export class ListPasswordPage {
     public modalCtrl: ModalController, public passwordProvider: PasswordProvider) {
   }
 
-  ngOnInit() {
+  ionViewWillEnter() {
     this.passwords = this.passwordProvider.getPasswords();
   }
 
@@ -30,24 +30,16 @@ export class ListPasswordPage {
    * @param item The selected password
    */
   goToPasswdDetails(event, item) {
-    const detailsModal = this.modalCtrl.create(PasswdDetailsPage, {
+    this.navCtrl.push(PasswdDetailsPage, {
       item: item,
     });
-    detailsModal.onDidDismiss((data) => {
-      this.passwords = this.passwordProvider.getPasswords();
-    });
-    detailsModal.present();
   }
 
   /**
    * Open the add password modal
    */
   addPassdw() {
-    const addModal = this.modalCtrl.create(AddPasswordPage);
-    addModal.onDidDismiss((data) => {
-      this.passwords = this.passwordProvider.getPasswords();
-    });
-    addModal.present();
+    this.navCtrl.push(AddPasswordPage, {'editing': false});
   }
 
   openSettingsPage() {

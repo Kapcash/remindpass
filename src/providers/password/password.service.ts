@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Password } from '../../models/password';
-import { Platform } from 'ionic-angular';
+import { Platform, ToastController } from 'ionic-angular';
 import { AES, enc } from 'crypto-js';
 import _ from 'lodash';
 import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
 
 const STORAGE_KEY: string = 'passwds';
 @Injectable()
@@ -12,10 +13,9 @@ export class PasswordProvider {
   /**
    * Local cache copy of passwords written in the local file
    */
-  private _passwords: Array<Password>;
   private aesKey: string = 'ma cle secrete temporaire';
 
-  constructor(public platform: Platform, public storage: Storage) {
+  constructor(public platform: Platform, public storage: Storage, public toastCtrl: ToastController, public translate: TranslateService) {
   }
 
   /**
@@ -33,51 +33,68 @@ export class PasswordProvider {
   }
 
   addPassword(pass: Password) {
-    this.addPasswordByAttributes(pass.name, pass.username, pass.password, pass.icon);
-  }
-
-  addPasswordByAttributes(name, username, password, icon) {
-    if (!icon) { // If no icon is provided, we set it to 'help' by default
-      icon = 'help';
-    }
-    // Encrypt password
-    password = this.encodePassword(password);
-    const newPasswd = new Password(name, username, password, icon);
     // Don't add if it already contains the same password
-    this.containsThisPassword(newPasswd).then((contains) => {
+    this.containsThisPassword(pass).then((contains) => {
       if (!contains) {
         this.getPasswords().then((passwords) => {
           if (passwords) {
-            passwords.push(newPasswd);
+            // Encrypt new password before storing it
+            pass.password = this.encodePassword(pass.password);
+            passwords.push(pass);
             passwords = _.sortBy(passwords, (elem) => elem.name);
             this.storePassword(passwords);
           } else {
-            this.storePassword([newPasswd]);
+            this.storePassword([pass]);
           }
         });
+      } else {
+        this.toastCtrl.create({
+          message: this.translate.instant('alreadyExists'),
+          duration: 1500
+        }).present();
+      }
+    });
+  }
+
+  addPasswordByAttributes(name, username, password, icon) {
+    const newPasswd = new Password(name, username, password, icon);
+    this.addPassword(newPasswd);
+  }
+
+  updatePassword(pass: Password) {
+    return this.getPasswords().then((passwords) => {
+      const index = _.findIndex(passwords, (elem) => {
+        return elem.id === pass.id;
+      });
+      if(index > -1) {
+        pass.lastEdited = new Date();
+        passwords[index] = pass;
+        return this.storePassword(passwords);
+      } else {
+        return null;
       }
     });
   }
 
   removePassword(pass: Password) {
-    this.getPasswords().then((passwords) => {
+    return this.getPasswords().then((passwords) => {
       if (passwords) {
         _.remove(passwords, (elem) => {
-          return elem.name === pass.name;
+          return elem.id === pass.id;
         });
-        this.storePassword(passwords);
+        return this.storePassword(passwords);
       }
     });
   }
 
   storePassword(passwdList) {
-    this.storage.set(STORAGE_KEY, passwdList);
+    return this.storage.set(STORAGE_KEY, passwdList);
   }
 
   containsThisPassword(password: Password): Promise<boolean> {
     return this.getPasswords().then((passwords) => {
       return _.findIndex(passwords, (elem) => {
-        return elem.name === password.name;
+        return elem.id === password.id;
       }) >= 0;
     });
   }

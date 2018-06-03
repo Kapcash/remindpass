@@ -12,9 +12,6 @@ export class SettingsPage {
   constructor(public navCtrl: NavController, public auth: AuthProvider, public modalCtrl: ModalController) {
   }
 
-  ionViewDidLoad() {
-  }
-
   resetRootPassword() {
     this.auth.deleteRootPassword().then((res) => {
       // Once the password is deleted, we display the register password modal again

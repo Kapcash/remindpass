@@ -19,10 +19,11 @@ import { LoginPage } from '../pages/login/login';
 import { AuthenticatePage } from '../pages/login/authenticate/authenticate';
 import { RegisterPassword } from '../pages/login/registerPassword/register-password';
 import { ListPasswordPage } from '../pages/list-passwd/list-passwd';
-import { PasswdDetailsPage } from '../pages/passwd-details/passwd-details';
-import { AddPasswordPage } from '../pages/add-paddwd/add-passwd';
+import { IconListPage } from '../pages/icon-list/icon-list';
 
 import { SettingsModule } from '../pages/settings/settings.module';
+import { AddPasswordModule } from '../pages/add-passwd/add-passwd.module';
+import { PasswdDetailsModule } from '../pages/passwd-details/passwd-details.module';
 
 export function createTranslateLoader(http: HttpClient) { // tslint:disable-line
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -34,8 +35,7 @@ export function createTranslateLoader(http: HttpClient) { // tslint:disable-line
     LoginPage,
     AuthenticatePage,
     RegisterPassword,
-    PasswdDetailsPage,
-    AddPasswordPage,
+    IconListPage,
     FilterPasswordsPipe,
   ],
   imports: [
@@ -51,14 +51,15 @@ export function createTranslateLoader(http: HttpClient) { // tslint:disable-line
       }
     }),
     SettingsModule,
+    AddPasswordModule,
+    PasswdDetailsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     RemindPassApp,
     ListPasswordPage,
     LoginPage,
-    PasswdDetailsPage,
-    AddPasswordPage,
+    IconListPage,
   ],
   providers: [
     StatusBar,
