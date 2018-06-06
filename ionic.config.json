@@ -1,6 +1,6 @@
 {
-  "name": "test",
-  "app_id": "",
+  "name": "RemindPass",
+  "app_id": "remind-pass",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
