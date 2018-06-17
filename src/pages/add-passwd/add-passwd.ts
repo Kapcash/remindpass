@@ -48,9 +48,8 @@ export class AddPasswordPage {
   showIconList() {
     const iconsModal = this.modalCtrl.create(IconListPage);
     iconsModal.onDidDismiss((data) => {
-      if(data.iconChosen) {
-        this.newPassword.icon = data.iconChosen;
-      }
+      this.newPassword.icon = _.get(data, 'iconChosen');
+      this.newPassword.iconColor = _.get(data, 'iconColor');
     });
     iconsModal.present();
   }

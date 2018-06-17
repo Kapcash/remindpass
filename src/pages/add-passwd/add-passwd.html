@@ -21,7 +21,7 @@
       <ion-input type="text" name="password" [(ngModel)]="newPassword.password"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-icon [name]="newPassword.icon" item-start></ion-icon>
+      <ion-icon [name]="newPassword.icon" [style.color]="newPassword.iconColor" item-start></ion-icon>
       <button ion-button outline item-end type="button" (click)="showIconList()">{{'chooseIcon' | translate}}</button>
     </ion-item>
     <div padding>

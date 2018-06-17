@@ -9,6 +9,7 @@ export class Password {
   public username: string;
   public password: string;
   public icon: string;
+  public iconColor: string;
   public lastEdited: Date;
 
   constructor(name: string, username: string, password: string, icon: string, lastEdited?: Date) {
@@ -16,6 +17,7 @@ export class Password {
     this.username = username;
     this.password = password;
     this.icon = icon;
+    this.iconColor = '#0162a9';
     this.lastEdited = lastEdited ? lastEdited : new Date();
     this.id = new Date().getUTCMilliseconds();
   }

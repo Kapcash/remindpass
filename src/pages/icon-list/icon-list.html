@@ -8,6 +8,9 @@
         <span ion-text color="primary" showWhen="ios">Cancel</span>
         <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
       </button>
+      <button ion-button (click)="chooseColor($event)">
+        <ion-icon name="color-fill"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -16,8 +19,8 @@
   <ion-grid fixed>
     <ion-row wrap>
       <ion-col *ngFor="let icon of iconList">
-        <button ion-button [name]="icon" (click)="chooseIcon(icon)" class="multiple">
-          <ion-icon role="img" [name]="icon"></ion-icon>
+        <button ion-button (click)="chooseIcon(icon)">
+          <ion-icon role="img" [name]="icon" [style.color]="iconColor"></ion-icon>
         </button>
         <span class="desc">{{'icons.' + icon | translate}}</span>
       </ion-col>

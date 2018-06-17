@@ -27,11 +27,11 @@ export class ListPasswordPage {
   /**
    * Open the details modal to display password information
    * @param event Click event
-   * @param item The selected password
+   * @param passwd The selected password
    */
-  goToPasswdDetails(event, item) {
+  goToPasswdDetails(event, passwd) {
     this.navCtrl.push(PasswdDetailsPage, {
-      item: item,
+      item: passwd,
     });
   }
 

@@ -31,17 +31,17 @@ export class AuthenticatePage {
   }
 
   authenticate() {
-    if (this.rootPassword) {
-      this.auth.isGoodRootPassword(this.rootPassword).then((isCorrect) => {
-        if (isCorrect) {
+    // if (this.rootPassword) {
+    //   this.auth.isGoodRootPassword(this.rootPassword).then((isCorrect) => {
+    //     if (isCorrect) {
           this.viewCtrl.dismiss();
-        } else {
-          this.toastWrongPassword();
-        }
-      });
-    } else {
-      this.toastWrongPassword();
-    }
+    //     } else {
+    //       this.toastWrongPassword();
+    //     }
+    //   });
+    // } else {
+    //   this.toastWrongPassword();
+    // }
   }
 
   toastWrongPassword() {

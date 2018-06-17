@@ -20,6 +20,7 @@ import { AuthenticatePage } from '../pages/login/authenticate/authenticate';
 import { RegisterPassword } from '../pages/login/registerPassword/register-password';
 import { ListPasswordPage } from '../pages/list-passwd/list-passwd';
 import { IconListPage } from '../pages/icon-list/icon-list';
+import { ColorPopover } from '../pages/icon-list/color-popover/color-popover';
 
 import { SettingsModule } from '../pages/settings/settings.module';
 import { AddPasswordModule } from '../pages/add-passwd/add-passwd.module';
@@ -34,6 +35,7 @@ export function createTranslateLoader(http: HttpClient) { // tslint:disable-line
     ListPasswordPage,
     LoginPage,
     AuthenticatePage,
+    ColorPopover,
     RegisterPassword,
     IconListPage,
     FilterPasswordsPipe,
@@ -60,6 +62,7 @@ export function createTranslateLoader(http: HttpClient) { // tslint:disable-line
     ListPasswordPage,
     LoginPage,
     IconListPage,
+    ColorPopover,
   ],
   providers: [
     StatusBar,

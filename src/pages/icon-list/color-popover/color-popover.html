@@ -1,0 +1,10 @@
+<ion-content>
+  <ion-grid fixed>
+    <ion-row wrap>
+      <ion-col *ngFor="let color of colorList">
+        <button [style.background-color]="color" ion-button (click)="dismiss(color)" class="multiple">
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

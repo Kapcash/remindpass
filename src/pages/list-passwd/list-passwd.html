@@ -14,7 +14,7 @@
   <p ion-fixed align="center">{{'noPasswordsFilter' | translate}}</p>
   <ion-list>
     <button ion-item *ngFor="let passwd of passwords | async | filterPasswords: searchFilter" (click)="goToPasswdDetails($event, passwd)">
-      <ion-icon name="{{passwd.icon}}" item-start></ion-icon>
+      <ion-icon [name]="passwd.icon" [style.color]="passwd.iconColor" item-start></ion-icon>
       <span>{{passwd.name}}</span>
       <ion-note item-end class="small-date">
         {{passwd.lastEdited | date : 'dd/MM/yyyy HH:mm'}}
