@@ -2,7 +2,7 @@
 
 ## Features
 
-RemindPass is a simple Ionic 3 app that keep safe your passwords locally. Instead of using a huge password manager, managing your passwords for you, keep the controle and secure them into this safe password annuary!
+RemindPass is a simple Ionic 3 app that keep safe your passwords locally. Instead of using a huge password manager managing your passwords for you, keep the controle and secure them into this safe password annuary!
 
 The app contains the following features:
 
@@ -11,7 +11,7 @@ The app contains the following features:
 
 I use SHA256 to crypt the root Password, and AES to store passwords on the device app storage.
 
-In the feature, I plan to add the following features:
+In the future, I plan to add the following features:
 - Sort passwords by most recent, category, name
 - Customize apparence
 - Delete or edit password by sliding list items
